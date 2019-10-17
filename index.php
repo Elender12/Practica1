@@ -8,14 +8,16 @@
 </head>
 <body>
     <div>
-    <h1>VARIABLES Y ARRAYS</h1>
+    <h1>ENTRE A JUGAR</h1>
+    <form action="jugar.php">
+    <p>Su nombre<input type="text" name="nombre"/></p>
+    <p>Nº de cuenta<input type="text" name="cc"/></p>
+    <p>Email <Input type="email" name="mail"/></p>
+    <p>Su Capital<input type="number" name="money"/></p>
+    
+    <input type="submit" value="Entrar"/>
 
-
+    </form>
     </div>
-    <div>
-
-    </div>
-
-
 </body>
 </html>
