@@ -9,7 +9,7 @@
 <body>
     <div>
     <h1>ENTRE A JUGAR</h1>
-    <form action="jugar.php">
+    <form action="jugador.php" method="POST">
     <p>Su nombre<input type="text" name="nombre"/></p>
     <p>Nº de cuenta<input type="text" name="cc"/></p>
     <p>Email <Input type="email" name="mail"/></p>

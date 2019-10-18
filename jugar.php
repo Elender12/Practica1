@@ -8,18 +8,18 @@
 </head>
 <body>
     <div>
-    <form action="jugador.php">
+    <form action="jugador.php" method="POST">
     Piedra<input type="radio" name="eleccion" value="piedra"/>
     Papel<input type="radio" name="eleccion" value="papel"/>
     Tijeras<input type="radio" name="eleccion" value="tijeras"/>
     Lagarto<input type="radio" name="eleccion" value="lagarto"/>
-    Spok<input type="radio" name="spok" value="spok"/></p>
+    Spock<input type="radio" name="eleccion" value="spock"/></p>
 
     <p><input type="submit" value="Jugar"/></p>
     </div>
     <div>
     </form>
-    <form action="index.php">
+    <form action="index.php" method="POST">
     <input type="submit" value="Salir"/>
     </form>
     <div>
