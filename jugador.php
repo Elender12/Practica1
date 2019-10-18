@@ -7,8 +7,6 @@ if(isset($_POST['money'])){
 }
 
 
-
-
 if(isset($_POST['eleccion'])){
     $mres = array(
                 array(
@@ -58,26 +56,42 @@ if(isset($_POST['eleccion'])){
         $_SESSION['money'] =$_SESSION['money']+1;
         echo "Capital disponible: ".$_SESSION['money'];
         echo "<br/>";
+        echo "<br/>";
     }elseif ($mres[$alea][$jugada]==-1) {
         echo "<h1>PERDEDOOOOORRRR!!!!</h1> <br/>Su ".$jugada." pierde a ".$op[$alea]."<br/>";
         $_SESSION['money'] =$_SESSION['money']-1;
         echo "Capital disponible: ".$_SESSION['money'];
         echo "<br/>";
+        echo "<br/>";
     }else {
         echo "<h1>NI GANAS NI PIERDES!!!</h1> <br/>Su ".$jugada." empata ".$op[$alea]."<br/>";
         echo "Capital disponible: ".$_SESSION['money'];
         echo "<br/>";
+        echo "<br/>";
     }
 
     
-        
-
 }
 
+    if( !isset($_SESSION['tu']) && !isset($_SESSION['machine'])){
+        $tu= array();
+        $makina=array();
+        $_SESSION['tu'] = $tu;
+        $_SESSION['machine'] = $makina;
+    }
+    array_unshift($_SESSION['tu'],$jugada);
+    array_unshift($_SESSION['machine'],$op[$alea]);
 
 
-//$_SESSION['money'] =$_SESSION['money']-1;
+    
+    for ($i=0; $i < 5; $i++) { 
+        echo "TU".$_SESSION['tu'][$i]."<br/>";
+        echo "MaKina".$_SESSION['machine'][$i]."<br/>";
+        echo "<br/>";
+    }
+    
 
+    
 
 include_once ("jugar.php");
 
