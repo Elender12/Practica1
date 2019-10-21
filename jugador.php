@@ -79,7 +79,7 @@ function comenzarJuego(){
     if($arrayResultados[$numAleatorio][$eleccionJugador]=1){         
         echo "<h1>Has ganado!!!!!</h1>";
         echo "<p>El oponente ha sacado: ". $eleccionOponente[$numAleatorio]."</p>";
-        echo "<p>Su ".$eleccionJugador." gana a ".$eleccionOponente[$numAleatorio]." de la máquina</p>";
+        echo "<p>Su [".$eleccionJugador."] gana a [".$eleccionOponente[$numAleatorio]."] de la máquina</p>";
         $_SESSION['money'] = $_SESSION['money']+1;
         echo "<p>Capital disponible: ".$_SESSION['money']."</p>";
         echo "<br/>";
@@ -88,15 +88,15 @@ function comenzarJuego(){
     }elseif ($arrayResultados[$numAleatorio][$eleccionJugador]==-1) {
         echo "<h1>Pierdes!!!!</h1>";
         echo "<p>El oponente ha sacado: ". $eleccionOponente[$numAleatorio]."</p>";
-        echo "<p>Su ".$eleccionJugador." pierde contra ".$eleccionOponente[$numAleatorio]." de la máquina</p>";
+        echo "<p>Su [".$eleccionJugador."] pierde contra [".$eleccionOponente[$numAleatorio]."] de la máquina</p>";
         $_SESSION['money'] = $_SESSION['money']-1;
         echo "<p>Capital disponible: ".$_SESSION['money']."</p>";
         echo "<br/>";
         echo "<br/>";
-        
+
     }else {
         echo "<h1>Empate!!!</h1>";
-        echo "Su ".$eleccionJugador." empata con ".$eleccionOponente[$numAleatorio]." de la máquina</p>";
+        echo "Su [".$eleccionJugador."] empata con [".$eleccionOponente[$numAleatorio]."] de la máquina</p>";
         echo "<p>Capital disponible: ". $_SESSION['money']."</p>";
         echo "<br/>";
         echo "<br/>";
