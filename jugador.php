@@ -72,11 +72,9 @@ function comenzarJuego(){
 
     $numAleatorio = rand(0,4);
     $eleccionOponente = array("piedra","papel","tijeras","lagarto","spock");
-    $eleccionJugador = $_POST['eleccion'];
+    $eleccionJugador = $_POST['eleccion'];        
 
-    
-
-    if($arrayResultados[$numAleatorio][$eleccionJugador]=1){         
+    if($arrayResultados[$numAleatorio][$eleccionJugador]==1){         
         echo "<h1>Has ganado!!!!!</h1>";
         echo "<p>El oponente ha sacado: ". $eleccionOponente[$numAleatorio]."</p>";
         echo "<p>Su [".$eleccionJugador."] gana a [".$eleccionOponente[$numAleatorio]."] de la máquina</p>";
