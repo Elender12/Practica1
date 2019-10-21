@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+include_once ("jugar.php");
+
 if(isset($_POST['money'])){
     
     $money = $_POST['money'];
@@ -100,7 +103,5 @@ function comenzarJuego(){
         echo "<br/>";
     }
 }
-
-include_once ("jugar.php");
 
 ?>
