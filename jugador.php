@@ -2,6 +2,7 @@
 session_start();
 
 include_once ("jugar.php");
+require ("clases/controladorJuego.php");
 
 if(isset($_POST['money'])){
     
@@ -73,34 +74,21 @@ function comenzarJuego(){
             ),
         );
 
+    
     $numAleatorio = rand(0,4);
-    $eleccionOponente = array("piedra","papel","tijeras","lagarto","spock");
-    $eleccionJugador = $_POST['eleccion'];        
+    $posibilidadesOponente = array("piedra","papel","tijeras","lagarto","spock");
+    $eleccionOponente = $posibilidadesOponente[$numAleatorio];
+    $eleccionJugador = $_POST['eleccion'];      
+    $resultado = $arrayResultados[$numAleatorio][$eleccionJugador];
 
-    if($arrayResultados[$numAleatorio][$eleccionJugador]==1){         
-        echo "<h1>Has ganado!!!!!</h1>";
-        echo "<p>El oponente ha sacado: ". $eleccionOponente[$numAleatorio]."</p>";
-        echo "<p>Su [".$eleccionJugador."] gana a [".$eleccionOponente[$numAleatorio]."] de la máquina</p>";
-        $_SESSION['money'] = $_SESSION['money']+1;
-        echo "<p>Capital disponible: ".$_SESSION['money']."</p>";
-        echo "<br/>";
-        echo "<br/>";
+    $controladorJuego = new controladorJuego;
 
-    }elseif ($arrayResultados[$numAleatorio][$eleccionJugador]==-1) {
-        echo "<h1>Pierdes!!!!</h1>";
-        echo "<p>El oponente ha sacado: ". $eleccionOponente[$numAleatorio]."</p>";
-        echo "<p>Su [".$eleccionJugador."] pierde contra [".$eleccionOponente[$numAleatorio]."] de la máquina</p>";
-        $_SESSION['money'] = $_SESSION['money']-1;
-        echo "<p>Capital disponible: ".$_SESSION['money']."</p>";
-        echo "<br/>";
-        echo "<br/>";
-
+    if($resultado == 1){         
+        $controladorJuego->ganar($eleccionOponente, $eleccionJugador);
+    }elseif ($resultado == -1) {
+        $controladorJuego->perder($eleccionOponente, $eleccionJugador);
     }else {
-        echo "<h1>Empate!!!</h1>";
-        echo "Su [".$eleccionJugador."] empata con [".$eleccionOponente[$numAleatorio]."] de la máquina</p>";
-        echo "<p>Capital disponible: ". $_SESSION['money']."</p>";
-        echo "<br/>";
-        echo "<br/>";
+        $controladorJuego->empatar($eleccionOponente, $eleccionJugador);
     }
 }
 
