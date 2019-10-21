@@ -7,25 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jugar</title>
     <link rel="stylesheet" type="text/css" href="estilos/misestilos.css">
+    <script type="application/javascript">
+        function redireccionarInicio(){
+            window.open("index.html", "_self");
+        }
+    </script>
 </head>
 
 <body>
     <div>
         <form action="jugador.php" method="POST">
             <div>
-                <label>Piedra</label><input class="button-width" type="radio" name="eleccion" value="piedra" />
-                <label>Papel</label><input class="button-width" type="radio" name="eleccion" value="papel" />
-                <label>Tijeras</label><input class="button-width" type="radio" name="eleccion" value="tijeras" />
-                <label>Lagarto</label><input class="button-width" type="radio" name="eleccion" value="lagarto" />
-                <label>Spock</label><input class="button-width" type="radio" name="eleccion" value="spock" />
+                <div>
+                    <label>Piedra</label>
+                    <input type="radio" name="eleccion" value="piedra" />
+                </div>
+                <div>
+                    <label>Papel</label>
+                    <input type="radio" name="eleccion" value="papel" />
+                </div>
+                <div>
+                    <label>Tijeras</label>
+                    <input type="radio" name="eleccion" value="tijeras" />
+                </div>
+                <div>
+                    <label>Lagarto</label>
+                    <input type="radio" name="eleccion" value="lagarto" />
+                </div>
+                <div>
+                    <label>Spock</label>
+                    <input type="radio" name="eleccion" value="spock" />
+                </div>
+                <div>
+                    <input type="submit" value="Jugar" /> 
+                    <input type="button" onclick="redireccionarInicio()" value="Salir" />
+                </div>
             </div>
-            <input type="submit" value="Jugar" />
 
-        </form>
-    </div>
-    <div>
-        <form action="index.php" method="POST">
-            <input type="submit" value="Salir" />
         </form>
     </div>
 </body>
