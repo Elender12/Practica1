@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="estilos/misestilos.css">
 </head>
 
 <body>
     <div>
         <h1>ENTRE A JUGAR</h1>
         <form action="jugador.php" method="POST">
-            <p>Su nombre<input type="text" name="nombre" /></p>
-            <p>Nº de cuenta<input type="text" name="cc" /></p>
-            <p>Email <Input type="email" name="mail" /></p>
-            <p>Su Capital<input type="number" name="money" /></p>
+            <div>
+                <label>Su nombre</label>
+                <input type="text" name="nombre" />
+            </div>
 
-            <input type="submit" value="Entrar" />
-            
+            <div>
+                <label>Nº de cuenta</label>
+                <input type="text" name="cc" />
+            </div>
+
+            <div>
+                <label>Email</label>
+                <Input type="email" name="mail" />
+            </div>
+
+            <div>
+                <label>Su Capital</label>
+                <input type="number" name="money" />
+            </div>
+
+            <div>
+                <input type="submit" value="Entrar" />
+            </div>
+
         </form>
     </div>
 </body>
