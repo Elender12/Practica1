@@ -12,21 +12,22 @@
 <body>
     <div>
         <form action="jugador.php" method="POST">
-
-            <label>Piedra</label><input type="radio" name="eleccion" value="piedra" />
-            <label>Papel</label><input type="radio" name="eleccion" value="papel" />
-            <label>Tijeras</label><input type="radio" name="eleccion" value="tijeras" />
-            <label>Lagarto</label><input type="radio" name="eleccion" value="lagarto" />
-            <label>Spock</label><input type="radio" name="eleccion" value="spock" />
-
+            <div>
+                <label>Piedra</label><input class="button-width" type="radio" name="eleccion" value="piedra" />
+                <label>Papel</label><input class="button-width" type="radio" name="eleccion" value="papel" />
+                <label>Tijeras</label><input class="button-width" type="radio" name="eleccion" value="tijeras" />
+                <label>Lagarto</label><input class="button-width" type="radio" name="eleccion" value="lagarto" />
+                <label>Spock</label><input class="button-width" type="radio" name="eleccion" value="spock" />
+            </div>
             <input type="submit" value="Jugar" />
+
+        </form>
     </div>
     <div>
-        </form>
         <form action="index.php" method="POST">
             <input type="submit" value="Salir" />
         </form>
-        <div>
+    </div>
 </body>
 
 </html>
