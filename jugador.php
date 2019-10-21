@@ -48,7 +48,7 @@ function comenzarJuego(){
 
 // Genera la eleccion del oponente
 //  Parametros: Numero que indica la posicion del array a coger
-//  Devuelve: El elemento seleccionado
+//  Devuelve: El elemento del oponente
 function generarTiradaMaquina($numAleatorio){
     $posibilidadesOponente = array("piedra","papel","tijeras","lagarto","spock");
     $eleccionOponente = $posibilidadesOponente[$numAleatorio];
