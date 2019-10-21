@@ -84,7 +84,7 @@ if(isset($_POST['eleccion'])){
 
 
     
-    for ($i=0; $i < 5; $i++) { 
+    for ($i=0; $i < 4; $i++) { 
         echo "TU".$_SESSION['tu'][$i]."<br/>";
         echo "MaKina".$_SESSION['machine'][$i]."<br/>";
         echo "<br/>";

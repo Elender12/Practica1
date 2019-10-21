@@ -9,13 +9,14 @@
 <body>
     <div>
     <form action="jugador.php" method="POST">
-    Piedra<input type="radio" name="eleccion" value="piedra"/>
-    Papel<input type="radio" name="eleccion" value="papel"/>
-    Tijeras<input type="radio" name="eleccion" value="tijeras"/>
-    Lagarto<input type="radio" name="eleccion" value="lagarto"/>
-    Spock<input type="radio" name="eleccion" value="spock"/></p>
+    
+        <label>Piedra</label><input type="radio" name="eleccion" value="piedra"/>
+        <label>Papel</label><input type="radio" name="eleccion" value="papel"/>
+        <label>Tijeras</label><input type="radio" name="eleccion" value="tijeras"/>
+        <label>Lagarto</label><input type="radio" name="eleccion" value="lagarto"/>
+        <label>Spock</label><input type="radio" name="eleccion" value="spock"/>
 
-    <p><input type="submit" value="Jugar"/></p>
+        <input type="submit" value="Jugar"/>
     </div>
     <div>
     </form>
