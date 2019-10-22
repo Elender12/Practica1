@@ -2,7 +2,7 @@
 session_start();
 
 // Inclusion de clases y ficheros
-include_once ("jugar.php");
+require ("jugar.php");
 require ("clases/controladorJuego.php");
 
 // Asignamos a la variable de sesion el dinero inical para que
@@ -40,14 +40,9 @@ function comenzarJuego(){
     
     // Creamos una instancia de la clase que contiene la logica en caso de ganar, perder o empatar
     $controladorJuego = new controladorJuego;
-
-    //if($resultado == 1){         
+        
     $controladorJuego->comprobarTirada($eleccionOponente, $eleccionJugador, $resultado);
-    //}elseif ($resultado == -1) {
-    //    $controladorJuego->perder($eleccionOponente, $eleccionJugador);
-    //}else {
-    //    $controladorJuego->empatar($eleccionOponente, $eleccionJugador);
-    //}
+
     mostrarHistorial($eleccionOponente, $eleccionJugador);
     
 }
@@ -89,7 +84,7 @@ function mostrarHistorial($eleccionOponente, $eleccionJugador){
     echo "<tr>";
     echo "<td> Makina </td>";
     for ($i=0; $i < $movimientosAMostrar; $i++) { 
-            echo "<td>".$_SESSION['machine'][$i]."</td>";
+        echo "<td>".$_SESSION['machine'][$i]."</td>";
     }
     echo"</table>";
 }

@@ -1,6 +1,6 @@
 label{
     display: inline-block;
-    width: 120px;
+    width: 12%;
 }
 body{
 	background-image: url("https://ic.pics.livejournal.com/ladyofjest/27051351/26850/26850_original.jpg");
@@ -8,7 +8,7 @@ body{
 	font-size: 15px;
 }
 #principal{
-	width: 800px;
+	width: 90%;
 }
 .opciones{
 	font-size: 25px;
