@@ -11,10 +11,14 @@ if(isset($_POST['money'])){
     $money = $_POST['money'];
     $_SESSION['money'] = $money;
 }
+if(isset($_POST['nombre'])){
+    $nombre = $_POST['nombre'];
+    $_SESSION['nombre'] = $nombre;
+}
 
 // Si hemos elegido una tirada comenzará el programa
 if(isset($_POST['eleccion'])){
-    comenzarJuego();
+    comenzarJuego();  
 }
 
 // Funcion que contiene la logica del juego
@@ -44,6 +48,8 @@ function comenzarJuego(){
     //}else {
     //    $controladorJuego->empatar($eleccionOponente, $eleccionJugador);
     //}
+    mostrarHistorial($eleccionOponente, $eleccionJugador);
+    
 }
 
 // Genera la eleccion del oponente
@@ -56,8 +62,8 @@ function generarTiradaMaquina($numAleatorio){
 }
 
 // Muestra el historial de los ultimos movimientos
-function mostrarHistorial(){
-    $movimientosAMostrar = 0;
+function mostrarHistorial($eleccionOponente, $eleccionJugador){
+    $movimientosAMostrar = 5;
     if( !isset($_SESSION['tu']) && !isset($_SESSION['machine'])){
         $tu= array();
         $maquina=array();
@@ -67,14 +73,24 @@ function mostrarHistorial(){
     }
 
     array_unshift($_SESSION['tu'],$eleccionJugador);
-    array_unshift($_SESSION['machine'],$eleccionOponente[$numAleatorio]);
+    array_unshift($_SESSION['machine'],$eleccionOponente);
 
 
-
-    for ($i=0; $i < $movimientosAMostrar; $i++) { 
-        echo "TU".$_SESSION['tu'][$i]."<br/>";
-        echo "maquina".$_SESSION['machine'][$i]."<br/>";
-        echo "<br/>";
+    if(count($_SESSION['tu'])<$movimientosAMostrar){
+        $movimientosAMostrar=count($_SESSION['tu']);
     }
+    echo"<table>";
+    echo "<tr>";
+    echo "<td>".$_SESSION['nombre']."</td>";
+    for ($i=0; $i < $movimientosAMostrar; $i++) { 
+            echo "<td>".$_SESSION['tu'][$i]."</td>"; 
+    }
+    echo"</tr>";
+    echo "<tr>";
+    echo "<td> Makina </td>";
+    for ($i=0; $i < $movimientosAMostrar; $i++) { 
+            echo "<td>".$_SESSION['machine'][$i]."</td>";
+    }
+    echo"</table>";
 }
 ?>
