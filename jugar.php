@@ -15,27 +15,28 @@
 </head>
 
 <body>
-    <div>
+    <div align="center">
         <form action="jugador.php" method="POST">
             <div>
+		<h1>Elige tu opción con sabiduría:</h1>
                 <div>
                     <label>Piedra</label>
                     <input type="radio" name="eleccion" value="piedra" />
                 </div>
                 <div>
-                    <label>Papel</label>
+                    <label class="opciones">Papel</label>
                     <input type="radio" name="eleccion" value="papel" />
                 </div>
                 <div>
-                    <label>Tijeras</label>
+                    <label class="opciones">Tijeras</label>
                     <input type="radio" name="eleccion" value="tijeras" />
                 </div>
                 <div>
-                    <label>Lagarto</label>
+                    <label class="opciones">Lagarto</label>
                     <input type="radio" name="eleccion" value="lagarto" />
                 </div>
                 <div>
-                    <label>Spock</label>
+                    <label class="opciones">Spock</label>
                     <input type="radio" name="eleccion" value="spock" />
                 </div>
                 <div>
