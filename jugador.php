@@ -1,28 +1,30 @@
 <?php
 session_start();
-
 // Inclusion de clases y ficheros
 include_once ("jugar.php");
 require ("clases/controladorJuego.php");
-
-// Asignamos a la variable de sesion el dinero inicial para que
+// Asignamos a la variable de sesion el dinero inical para que
 // este diponible durante toda la ejecucion del programa
-if(isset($_POST['money'])){
-    $money = $_POST['money'];
-    $_SESSION['money'] = $money;
-   
-}
-if(isset($_POST['nombre'])){
-	$nombre= $_POST['nombre'];
-	$_SESSION['nombre'] = $nombre;
 
-}
 
+
+    if(isset($_POST['money']) && isset($_POST['nombre'])){
+        $entro=false;
+        $money = $_POST['money'];
+        $nombre = $_POST['nombre'];
+        if($money>=1 && strlen($nombre)!=0){
+        $_SESSION['money'] = $money;
+        $_SESSION['nombre'] = $nombre;
+        $entro=true;
+        }else{
+            header("Location: index.html");
+        }
+}
 // Si hemos elegido una tirada comenzará el programa
 if(isset($_POST['eleccion'])){
-    comenzarJuego();
+    
+    comenzarJuego();  
 }
-
 // Funcion que contiene la logica del juego
 function comenzarJuego(){
     // Creamos una matriz con los valores seleccionables y su valor
@@ -32,27 +34,17 @@ function comenzarJuego(){
         array("piedra"=>1, "papel"=>-1, "tijeras"=>0, "lagarto"=>-1, "spock"=>1),
         array("piedra"=>1, "papel"=>-1, "tijeras"=>1, "lagarto"=>0, "spock"=>-1),
         array("piedra"=>-1, "papel"=>1, "tijeras"=>-1, "lagarto"=>1, "spock"=>0 ));
-
     // Se genera un numero aleatorio que servira para generar la tirada de la
     // máquina, también se utilizara para determinar el resultado
     $numAleatorio = rand(0,4);
     $eleccionOponente = generarTiradaMaquina($numAleatorio);
     $eleccionJugador = $_POST['eleccion'];      
-    $resultado = $arrayResultados[$numAleatorio][$eleccionJugador];
-    
+    $resultado = $arrayResultados[$numAleatorio][$eleccionJugador];   
     // Creamos una instancia de la clase que contiene la logica en caso de ganar, perder o empatar
-    $controladorJuego = new controladorJuego;
-
-    //if($resultado == 1){         
+    $controladorJuego = new controladorJuego;      
     $controladorJuego->comprobarTirada($eleccionOponente, $eleccionJugador, $resultado);
-    //}elseif ($resultado == -1) {
-    //    $controladorJuego->perder($eleccionOponente, $eleccionJugador);
-    //}else {
-    //    $controladorJuego->empatar($eleccionOponente, $eleccionJugador);
-    //}
-    mostrarHistorial($eleccionOponente, $eleccionJugador);
+    mostrarHistorial($eleccionOponente, $eleccionJugador);   
 }
-
 // Genera la eleccion del oponente
 //  Parametros: Numero que indica la posicion del array a coger
 //  Devuelve: El elemento del oponente
@@ -61,21 +53,15 @@ function generarTiradaMaquina($numAleatorio){
     $eleccionOponente = $posibilidadesOponente[$numAleatorio];
     return $eleccionOponente;
 }
-
 // Muestra el historial de los ultimos movimientos
 function mostrarHistorial($eleccionOponente, $eleccionJugador){
-    $movimientosAMostrar = 0;
-    if( !isset($_SESSION['tu']) && !isset($_SESSION['machine'])){
-        $tu= array();
-        $maquina=array();
-        
-        $_SESSION['tu'] = $tu;
-        $_SESSION['machine'] = $maquina;
+    $movimientosAMostrar = 5;
+    if( !isset($_SESSION['tu']) && !isset($_SESSION['machine'])){     
+        $_SESSION['tu'] = array();
+        $_SESSION['machine'] = array();
     }
-
     array_unshift($_SESSION['tu'],$eleccionJugador);
     array_unshift($_SESSION['machine'],$eleccionOponente);
-
     if(count($_SESSION['tu'])<$movimientosAMostrar){
         $movimientosAMostrar=count($_SESSION['tu']);
     }
@@ -95,5 +81,5 @@ function mostrarHistorial($eleccionOponente, $eleccionJugador){
                 echo "<td>".$v[$i]."</td>"; 
         }
         echo"</tr>";
-    }
+}
 ?>
