@@ -6,12 +6,16 @@ include_once ("jugar.php");
 require ("clases/controladorJuego.php");
 // Asignamos a la variable de sesion el dinero inical para que
 // este diponible durante toda la ejecucion del programa
-if(isset($_POST['money']) && isset($_POST['nombre'])){
+if(isset($_POST['money']) && isset($_POST['nombre']) && isset($_POST['cc']) && isset($_POST['mail'])){
     $money = $_POST['money'];
     $nombre = $_POST['nombre'];
-    if($money>=1 && strlen($nombre)!=0){
+    $cc = $_POST['cc'];
+    $mail = $_POST['mail'];
+    $pattern = '/[A-Za-z]@[A-Za-z].com$/';
+    if($money>=1 && strlen($nombre)!=0 && strlen($cc)==24 && preg_match($pattern,$mail)==1){
         $_SESSION['money'] = $money;
         $_SESSION['nombre'] = $nombre;
+        $_SESSION['cc']= $cc;
     }else{
         header("Location: index.html");
         exit;
