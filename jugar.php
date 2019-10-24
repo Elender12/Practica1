@@ -2,44 +2,32 @@
     ini_set('display_errors', 1); 
     ini_set('display_startup_errors', 1); 
     error_reporting(E_ERROR | E_PARSE);
+    
+    $redirigir = function(){
+        show_source(jugador.php);
+    };
+    $destruirSesion = function(){
+        session_destroy();
+        header("Location: index.html");
+    };
+    if(array_key_exists('jugar', $_POST)) { 
+        $redirigir();
+    } 
+    else if(array_key_exists('salir', $_POST)) { 
+        $destruirSesion();
+    }     
 ?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jugar</title>
-    <link rel="stylesheet" type="text/css" href="estilos/misestilos.css">
-
-    <?php
-
-
-        $redirigir = function(){
-            show_source(jugador.php);
-        };
-
-        $destruirSesion = function(){
-            session_destroy();
-            header("Location: index.html");
-        };
-
-        if(array_key_exists('jugar', $_POST)) { 
-            $redirigir();
-        } 
-        else if(array_key_exists('salir', $_POST)) { 
-            $destruirSesion();
-        } 
- 
-        
-    ?>
-    
+    <link rel="stylesheet" type="text/css" href="estilos/misestilos.css">    
 </head>
-
 <body>
-    <div align="center">
+    <div id="centro">
         <form method="POST">
             <div>
                 <h1>Elige tu opción con sabiduría:</h1>
@@ -71,5 +59,4 @@
         </form>
     </div>
 </body>
-
 </html>
