@@ -6,18 +6,15 @@ include_once ("jugar.php");
 require ("clases/controladorJuego.php");
 // Asignamos a la variable de sesion el dinero inical para que
 // este diponible durante toda la ejecucion del programa
-
-
-
 if(isset($_POST['money']) && isset($_POST['nombre'])){
     $money = $_POST['money'];
     $nombre = $_POST['nombre'];
-
     if($money>=1 && strlen($nombre)!=0){
         $_SESSION['money'] = $money;
         $_SESSION['nombre'] = $nombre;
     }else{
         header("Location: index.html");
+        exit;
     }
 }
 // Si hemos elegido una tirada comenzará el programa
@@ -65,6 +62,7 @@ function mostrarHistorial($eleccionOponente, $eleccionJugador){
     if(count($_SESSION['tu'])<$movimientosAMostrar){
         $movimientosAMostrar=count($_SESSION['tu']);
     }
+    echo "<div id='centro'>";
     echo"<table>";
     echo "<tr>";
     echo "<td>".$_SESSION['nombre']."</td>";
@@ -73,6 +71,8 @@ function mostrarHistorial($eleccionOponente, $eleccionJugador){
     echo "<td> Makina </td>";
     bucle($_SESSION['machine'],$movimientosAMostrar);
     echo"</table>";
+    echo "</div>";
+
 }
     //funcion para reutilizar el for para generar la tabla de ultimas tiradas
     // la variable v es la variable de session a recorrer
@@ -81,5 +81,6 @@ function mostrarHistorial($eleccionOponente, $eleccionJugador){
                 echo "<td>".$v[$i]."</td>"; 
         }
         echo"</tr>";
-}ob_end_flush();
+}
+ob_end_flush();
 ?>

@@ -4,10 +4,8 @@
     define("SHOW_WARNING", 1);
     define("SHOW_ERROR", 2);
     define("SHOW_TODO", 3);
-
     // Variable donde almacenamos su valor
     $textoDepurador = SHOW_ERROR;
-
     // Switch del depurador
     switch ($textoDepurador){
         case 0:
@@ -25,17 +23,14 @@
         default:
             error_reporting(E_ERROR | E_PARSE);
     }
-
     $redirigir = function(){
         show_source(jugador.php);
     };
-
     $destruirSesion = function(){
         session_destroy();
         header("Location: index.html");
         exit;
     };
-
     if(array_key_exists('jugar', $_POST)) { 
         $redirigir();
     } 
@@ -58,7 +53,7 @@
 </head>
 
 <body>
-    <div align="center">
+    <div id="centro">
         <form method="POST">
             <div>
                 <h1>Elige tu opción con sabiduría:</h1>
