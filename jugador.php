@@ -8,17 +8,16 @@ require ("clases/controladorJuego.php");
 
 
 
-    if(isset($_POST['money']) && isset($_POST['nombre'])){
-        $entro=false;
-        $money = $_POST['money'];
-        $nombre = $_POST['nombre'];
-        if($money>=1 && strlen($nombre)!=0){
+if(isset($_POST['money']) && isset($_POST['nombre'])){
+    $money = $_POST['money'];
+    $nombre = $_POST['nombre'];
+
+    if($money>=1 && strlen($nombre)!=0){
         $_SESSION['money'] = $money;
         $_SESSION['nombre'] = $nombre;
-        $entro=true;
-        }else{
-            header("Location: index.html");
-        }
+    }else{
+        header("Location: index.html");
+    }
 }
 // Si hemos elegido una tirada comenzará el programa
 if(isset($_POST['eleccion'])){
