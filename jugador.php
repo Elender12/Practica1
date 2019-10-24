@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 // Inclusion de clases y ficheros
 include_once ("jugar.php");
 require ("clases/controladorJuego.php");
@@ -80,5 +81,5 @@ function mostrarHistorial($eleccionOponente, $eleccionJugador){
                 echo "<td>".$v[$i]."</td>"; 
         }
         echo"</tr>";
-}
+}ob_end_flush();
 ?>
