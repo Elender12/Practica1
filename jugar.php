@@ -1,9 +1,30 @@
-<?php
-    ini_set('display_errors', 1); 
-    ini_set('display_startup_errors', 1); 
-    error_reporting(E_ERROR | E_PARSE);
+<?php   
+    // Constantes para mostrar el ripo de error
+    define("SHOW_PARSE", 0);
+    define("SHOW_WARNING", 1);
+    define("SHOW_ERROR", 2);
+    define("SHOW_TODO", 3);
 
-    
+    // Variable donde almacenamos su valor
+    $textoDepurador = SHOW_ERROR;
+
+    // Switch del depurador
+    switch ($textoDepurador){
+        case 0:
+            error_reporting(E_PARSE);
+            break;
+        case 1:
+            error_reporting(E_WARNING);
+            break;
+        case 2:
+            error_reporting(E_ERROR);
+            break;
+        case 3:
+            error_reporting(E_ERROR | E_WARNING | E_PARSE);
+            break;
+        default:
+            error_reporting(E_ERROR | E_PARSE);
+    }
 
     $redirigir = function(){
         show_source(jugador.php);
