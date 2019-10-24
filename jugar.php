@@ -2,6 +2,25 @@
     ini_set('display_errors', 1); 
     ini_set('display_startup_errors', 1); 
     error_reporting(E_ERROR | E_PARSE);
+
+    
+
+    $redirigir = function(){
+        show_source(jugador.php);
+    };
+
+    $destruirSesion = function(){
+        session_destroy();
+        header("Location: index.html");
+        exit;
+    };
+
+    if(array_key_exists('jugar', $_POST)) { 
+        $redirigir();
+    } 
+    else if(array_key_exists('salir', $_POST)) { 
+        $destruirSesion();
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -14,27 +33,6 @@
     <title>Jugar</title>
     <link rel="stylesheet" type="text/css" href="estilos/misestilos.css">
 
-    <?php
-
-
-        $redirigir = function(){
-            show_source(jugador.php);
-        };
-
-        $destruirSesion = function(){
-            session_destroy();
-            header("Location: index.html");
-        };
-
-        if(array_key_exists('jugar', $_POST)) { 
-            $redirigir();
-        } 
-        else if(array_key_exists('salir', $_POST)) { 
-            $destruirSesion();
-        } 
- 
-        
-    ?>
     
 </head>
 

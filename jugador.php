@@ -3,7 +3,7 @@ session_start();
 
 // Inclusion de clases y ficheros
 include_once ("jugar.php");
-require ("controladorJuego.php");
+require ("clases/controladorJuego.php");
 
 // Asignamos a la variable de sesion el dinero inicial para que
 // este diponible durante toda la ejecucion del programa
