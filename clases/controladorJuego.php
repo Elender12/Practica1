@@ -1,7 +1,7 @@
 <?php
-
+include "baseJuego.php";
 // Clase que controla la logica del juego contiene los metodos a instanciar
-class ControladorJuego{
+class ControladorJuego extends baseJuego{
 
     // Pinta por pantalla el texto indicando que el jugador ha ganado
     // Params: 
